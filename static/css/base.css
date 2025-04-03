@@ -1,0 +1,114 @@
+
+body {
+    font-family: "Roboto Slab", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+  }
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1000;
+    transition: background-color 0.8s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 40px;
+}
+@media (max-width: 768px) {
+    .logo img {
+        height: 25px;
+    }
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff0000;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ff0000;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 5%;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100vw;
+        height: calc(100vh - 70px);
+        background-color: rgba(0, 0, 0, 0.4);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        gap: 25px;
+        transition: left 0.5s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}

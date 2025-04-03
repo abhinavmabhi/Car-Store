@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{%block main_block%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+
+<div class="container-fluid">
+    <img src="{% static 'images/home-page.webp' %}" alt="Background Image">
+
+    <div class="overlay-content">
+        <h1>Search for Cars</h1>
+
+
+        <form action="{% url 'home' %}" method="GET" class="search-form">
+            <div class="input-group">
+                <input type="text" class="form-control search-input" placeholder="Search..." name="q" style="width: 500px;">
+                <button type="submit" class="btn search-btn">
+                    <i class="fas fa-search"></i> <!-- FontAwesome Icon -->
+                </button>
+            </div>
+        </form>
+        
+
+        <a href="{%url 'car-list'%}" type="submit" class="button w-50 mt-2">Browse More</a>
+    </div>
+</div>
+<!-- Rotating Tire with Text -->
+<div class="rotating-tire">
+    <img src="{% static 'images/tyres.png'%}" alt="Rotating Tire" width="100% ">
+</div>
+
+
+
+
+
+{%endblock%}

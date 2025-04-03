@@ -1,0 +1,260 @@
+body {
+    font-family: "Roboto Slab", serif;
+}
+
+.container-fluid {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container-fluid img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoomShake 20s infinite ease-in-out;
+}
+
+@keyframes zoomShake {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    10% {
+        transform: scale(1.01) translate(-5px, 5px);
+    }
+
+    20% {
+        transform: scale(1.15) translate(5px, -5px);
+    }
+
+    30% {
+        transform: scale(1.2) translate(-5px, -5px);
+    }
+
+    40% {
+        transform: scale(1.15) translate(5px, 5px);
+    }
+
+    50% {
+        transform: scale(1.1) translate(-5px, 0px);
+    }
+
+    60% {
+        transform: scale(1.15) translate(5px, -5px);
+    }
+
+    70% {
+        transform: scale(1.2) translate(-5px, 5px);
+    }
+
+    80% {
+        transform: scale(1.15) translate(5px, -5px);
+    }
+
+    90% {
+        transform: scale(1.1) translate(-5px, 5px);
+    }
+
+    100% {
+        transform: scale(1) translate(0, 0);
+    }
+}
+
+
+.overlay-content {
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.overlay-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+/* for mobile  */
+@media only screen and (max-width: 360px) {
+    .overlay-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .search-bar input[type="text"] {
+        max-width: 220px;
+    }
+
+    .btn {
+        width: 90%;
+    }
+
+    .rotating-tire {
+        width: 70px;
+        height: 70px;
+    }
+    
+}
+
+/* for extra small     */
+@media only screen and (min-width: 1200px) {
+    .overlay-content {
+        top: 55%;
+        left: 30%;
+    }
+
+    .search-bar input[type="text"] {
+        width: 600px;
+    }
+
+    .rotating-tire {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .input-group {
+        display: flex;
+        width: 100%;
+    }
+
+    .input-group .form-control {
+        flex: 1;
+        /* Ensures input takes the available space */
+        min-width: 0;
+        /* Prevents input from overflowing */
+    }
+
+    .input-group button {
+        width: 50px;
+        /* Ensures button does not shrink too much */
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .input-group {
+        flex-direction: row;
+    }
+
+    .input-group .form-control {
+        width: 80%;
+        /* Adjusts input width */
+    }
+
+    .input-group button {
+        width: 40px;
+        /* Adjusts button width */
+    }
+}
+
+
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+}
+.button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+}
+
+.button:hover {
+    background-color: red;
+    transform: scale(1.03); 
+}
+
+
+
+
+.rotating-tire {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    width: 150px;
+    height: 150px;
+    animation: rotate 5s linear infinite;
+}
+
+.rotating-tire:hover {
+    animation-play-state: paused;
+    /* Pause rotation */
+    transform: scale(1.1);
+    /* Apply scale smoothly */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container-fluid {
+        height: 100vh;
+        /* Reduce height on mobile */
+    }
+
+    .overlay-content {
+        top: 50%;
+        left: 50%;
+        width: 90%;
+        transform: translate(-50%, -50%);
+    }
+
+    .overlay-content h1 {
+        font-size: 2rem;
+        /* Smaller heading */
+        margin-bottom: 15px;
+    }
+
+    .search-bar input[type="text"] {
+        width: 100%;
+        /* Full width search */
+        max-width: 300px;
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        width: 16% !important;
+        /* Adjust button width */
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+    .button{
+        width: 80%;
+    }
+
+
+    .rotating-tire {
+        width: 100px;
+        height: 100px;
+        bottom: 5%;
+        right: 5%;
+    }
+
+
+}
