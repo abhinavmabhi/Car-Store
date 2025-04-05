@@ -5,9 +5,8 @@
 
 <link rel="stylesheet" href="{% static 'css/carlist.css' %}">
 
-
 <!-- Hero Section with Background Image -->
-<div class="position-relative text-center">
+<div class="position-relative text-center" data-aos="zoom-in-down">
     <img src="{% static 'images/head-image.jpg' %}" alt="Header Image" class="img-fluid w-100"
         style="max-height: 400px; object-fit: cover;">
 
@@ -19,12 +18,12 @@
                 style="margin-left: 45px;">
                 <input type="text" class="form-control border border-2" placeholder="Search..." name="q" id="search"
                     value="{{ search }}">
-                <button type="submit" class="btn btn-primary ms-2">Search</button>
+                <button type="submit" class="btn btn-primary ms-2" data-aos="slide-left">Search</button>
             </form>
 
-
             <!-- Filter Button -->
-            <button class="filter-button btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#filterModal">
+            <button class="filter-button btn btn-danger ms-2" data-aos="slide-right" data-bs-toggle="modal"
+                data-bs-target="#filterModal">
                 <i class="fas fa-filter"></i> Filter
             </button>
         </div>
@@ -33,121 +32,144 @@
 
 <!-- Filter Modal -->
 <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-md modal-dialog-centered">
         <div class="modal-content border-0 overflow-hidden">
-            <!-- Modal Header with Gradient Background -->
-            <div class="modal-header bg-gradient bg-dark text-white py-4">
+            <!-- Modal Header -->
+            <div class="modal-header bg-gradient bg-dark text-white py-2">
                 <div class="w-100 text-center position-relative">
-                    <h3 class="modal-title fw-bold mb-0" id="filterModalLabel">
-                        <i class="fas fa-sliders-h me-2"></i> Refine Your Search
-                    </h3>
+                    <h5 class="modal-title fw-semibold mb-0" id="filterModalLabel">
+                        <i class="fas fa-sliders-h me-2"></i> Filter
+                    </h5>
                 </div>
             </div>
 
             <!-- Modal Body -->
-            <div class="modal-body p-0">
+            <div class="modal-body p-3" style="max-height: 75vh; overflow-y: auto;">
                 <form method="GET" action="{% url 'car-list' %}">
-                    <div class="p-4">
-                        <!-- Price Range - Card Style -->
-                        <div class="card border border-2 shadow-sm mb-4 overflow-hidden">
-                            <div class="card-header bg-light">
-                                <h5 class="mb-0 fw-semibold">
-                                    <i class="fas fa-tag me-2 text-primary"></i> Price Range
-                                </h5>
+                    <!-- KM Range -->
+                    <div class="card border border-secondary shadow-sm mb-3">
+                        <div class="card-header bg-light py-2">
+                            <h6 class="mb-0 fw-semibold">
+                                <i class="fas fa-road me-2 text-primary"></i> Kilometers Driven
+                            </h6>
+                        </div>
+                        <div class="card-body py-2">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span id="minKmLabel" class="badge bg-light text-primary">0 KM</span>
+                                <span id="maxKmLabel" class="badge bg-light text-primary">2,00,000 KM</span>
                             </div>
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3 ">
-                                    <span id="minPriceLabel"
-                                        class="badge bg-primary bg-opacity-10 text-primary fs-6 px-3 py-2">₹0</span>
-                                    <span id="maxPriceLabel"
-                                        class="badge bg-primary bg-opacity-10 text-primary fs-6 px-3 py-2">₹2Cr</span>
+                            <div id="kmRangeSlider"></div>
+                            <input type="hidden" id="minKm" name="min_km">
+                            <input type="hidden" id="maxKm" name="max_km">
+                        </div>
+                    </div>
+
+
+
+                    <!-- Price Range -->
+                    <div class="card border border-secondary shadow-sm mb-3">
+                        <div class="card-header bg-light py-2">
+                            <h6 class="mb-0 fw-semibold"><i class="fas fa-tag me-2 text-primary"></i> Price</h6>
+                        </div>
+                        <div class="card-body py-2">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span id="minPriceLabel" class="badge bg-light text-primary">₹0</span>
+                                <span id="maxPriceLabel" class="badge bg-light text-primary">₹2Cr</span>
+                            </div>
+                            <div id="priceRangeSlider"></div>
+                            <input type="hidden" id="minPrice" name="min_price">
+                            <input type="hidden" id="maxPrice" name="max_price">
+                        </div>
+                    </div>
+
+                    <!-- Car Type -->
+                    <div class="card border-1 shadow-sm mb-3">
+                        <div class="card-header bg-light py-2">
+                            <h6 class="mb-0 fw-semibold"><i class="fas fa-car me-2 text-success"></i> Car Type</h6>
+                        </div>
+                        <div class="card-body py-2">
+                            <select class="form-select border-0 shadow-sm" name="car_type">
+                                <option value="">All Types</option>
+                                {% for type in car_types %}
+                                <option value="{{ type.name }}">{{ type.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- owner count  -->
+                    <div class="card border-1 shadow-sm mb-3">
+                        <div class="card-header bg-light py-2">
+                            <h6 class="mb-0 fw-semibold"><i class="fas fa-user me-2 text-primary"></i> Ownership</h6>
+                        </div>
+                        <div class="card-body py-2">
+                            <select class="form-select border-0 shadow-sm" name="owner_count">
+                                <option value="">All</option>
+                                <option value="1">1st</option>
+                                <option value="2">2nd</option>
+                                <option value="3">3rd</option>
+                                <option value="4">4th</option>
+                                <option value="5">5th</option>
+
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Transmission & Fuel -->
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="card border-1 shadow-sm h-100">
+                                <div class="card-header bg-light py-2">
+                                    <h6 class="mb-0 fw-semibold"><i class="fas fa-cog me-1 text-warning"></i>
+                                        Transmission</h6>
                                 </div>
-                                <div class="range-slider-container position-relative py-3">
-                                    <div class="range-slider-track bg-light rounded-pill"></div>
-                                    <input type="range" class="form-range range-slider-thumb" id="minPrice"
-                                        name="min_price" min="0" max="20000000" step="1000" value="0">
-                                    <input type="range" class="form-range range-slider-thumb" id="maxPrice"
-                                        name="max_price" min="0" max="20000000" step="1000" value="20000000">
+                                <div class="card-body py-2">
+                                    <select class="form-select border-0 shadow-sm" name="transmission">
+                                        <option value="">All</option>
+                                        <option value="Automatic">Automatic</option>
+                                        <option value="Manual">Manual</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Car Type - Card Style -->
-                        <div class="card border border-2 shadow-sm mb-4 overflow-hidden ">
-                            <div class="card-header bg-light">
-                                <h5 class="mb-0 fw-semibold">
-                                    <i class="fas fa-car me-2 text-success"></i> Car Type
-                                </h5>
-                            </div>
-                            <div class="card-body ">
-                                <select class="form-select form-select-lg border-0 shadow-none" id="carType"
-                                    name="car_type">
-                                    <option value="">All Types</option>
-                                    {% for type in car_types %}
-                                    <option value="{{ type.name }}">{{ type.name }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Transmission & Fuel Type - Side by Side Cards -->
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="card border border-2 shadow-sm h-100">
-                                    <div class="card-header bg-light">
-                                        <h5 class="mb-0 fw-semibold">
-                                            <i class="fas fa-cog me-2 text-warning"></i> Transmission
-                                        </h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <select class="form-select form-select-lg border-0 shadow-none"
-                                            id="transmissionType" name="transmission">
-                                            <option value="">All Options</option>
-                                            <option value="Automatic">Automatic</option>
-                                            <option value="Manual">Manual</option>
-                                        </select>
-                                    </div>
+                        <div class="col-6">
+                            <div class="card border-1 shadow-sm h-100">
+                                <div class="card-header bg-light py-2">
+                                    <h6 class="mb-0 fw-semibold"><i class="fas fa-gas-pump me-1 text-danger"></i> Fuel
+                                    </h6>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card border border-2 shadow-sm h-100">
-                                    <div class="card-header bg-light">
-                                        <h5 class="mb-0 fw-semibold">
-                                            <i class="fas fa-gas-pump me-2 text-danger"></i> Fuel Type
-                                        </h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <select class="form-select form-select-lg border-0 shadow-none" id="fuelType"
-                                            name="fuel_type">
-                                            <option value="">All Options</option>
-                                            <option value="Petrol">Petrol</option>
-                                            <option value="Diesel">Diesel</option>
-                                            <option value="Electric">Electric</option>
-                                            <option value="Hybrid">Hybrid</option>
-                                        </select>
-                                    </div>
+                                <div class="card-body py-2">
+                                    <select class="form-select border-0 shadow-sm" name="fuel_type">
+                                        <option value="">All</option>
+                                        <option value="Petrol">Petrol</option>
+                                        <option value="Diesel">Diesel</option>
+                                        <option value="Electric">Electric</option>
+                                        <option value="Hybrid">Hybrid</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Modal Footer with Sticky Apply Button -->
-                    <div class="modal-footer bg-light sticky-bottom p-3 border-top">
-                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4"
-                            data-bs-dismiss="modal">
-                            <i class="fas fa-times me-2"></i> Cancel
+                    <!-- Modal Footer -->
+                    <div class="modal-footer bg-light p-2 mt-3">
+                        <button type="button" class="btn btn-sm btn-outline-secondary px-3" data-bs-dismiss="modal">
+                            <i class="fas fa-times me-1"></i> Cancel
                         </button>
-                        <button type="submit" class="btn btn-primary rounded-pill px-4 shadow-sm">
-                            <i class="fas fa-check-circle me-2"></i> Apply Filters
+                        <button type="submit" class="btn btn-sm btn-primary px-3">
+                            <i class="fas fa-check me-1"></i> Apply
                         </button>
                     </div>
+
                 </form>
             </div>
         </div>
     </div>
 </div>
 
-
+<!-- h1========================= -->
+<h3 class="h3 d-flex justify-content-center mt-5 animate-text">Exclusive Collection of Pre-Owned Cars</h3>
 
 <!-- cars-------------------------------------- -->
 <div class="container mt-5">
@@ -156,7 +178,8 @@
         <div class="col-12 col-md-4">
             <div class="card position-relative mb-5">
                 {% if not c.is_available %}
-                <span class="badge bg-danger position-absolute top-0 end-0 m-2" style="height: 30px; width: 90px;">
+                <span class="badge bg-danger position-absolute top-0 end-0 m-2" style="height: 30px; width: 90px;"
+                    data-aos="zoom-in">
                     <p class="mt-1">Sold Out</p>
                 </span>
                 {% endif %}
@@ -164,36 +187,33 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <h4 class="card-title mb-4">₹ {{ c.price|format_price }}</h4>
+                            <h5 class="card-title mb-4">₹ {{ c.price|format_price }}</h5>
                         </div>
                     </div>
                     <div class="row">
-                        <!-- Left Side (Existing Items) -->
-                        <div class="col-6 text-start pe-3" style="border-right: 2px solid rgb(201, 201, 201);">   
-                            <p><strong>Name: </strong>{{ c.name }}</p>
-                            <p><strong>Owner Count: </strong>{{ c.owner_count }}</p>
-                            <p>Posted On: {{ c.created_date }}</p>
+                        <!-- Left Side -->
+                        <div class="col-6 text-start pe-1" style="border-right: 2px solid rgb(201, 201, 201);">
+                            <p data-aos="fade-up"><strong>Name: </strong>{{ c.name }}</p>
+                            <p data-aos="fade-up">Posted On: {{ c.created_date }}</p>
                         </div>
-                    
-                        <!-- Right Side (New Items) -->
-                        <div class="col-6 text-start ps-3">
-                            <p><strong>Year:</strong> {{ c.year }}</p>
-                            <p><strong>KM Run:</strong> {{ c.total_km_run }} km</p>
-                            <p><strong>Fuel Type:</strong> {{ c.fuel_type }}</p>
+
+                        <!-- Right Side -->
+                        <div class="col-6 text-start">
+                            <p data-aos="fade-up"><strong>Year:</strong> {{ c.year }}</p>
+                            <p data-aos="fade-up"><strong>Fuel Type:</strong> {{ c.fuel_type }}</p>
                         </div>
+                        <a href="{% url 'car-details' c.id %}" class="btn btn-primary mt-2 w-50 d-flex justify-content-center mx-auto">Details</a>
                     </div>
-                    <a href="#" class="btn btn-primary mt-2">Details</a>
-                    
                 </div>
             </div>
         </div>
         {% endfor %}
-
     </div>
 </div>
 
+<!-- ✅ Updated script with label fix -->
 <script>
-    // Enhanced Price Range Slider with Better Formatting
+    // Format price as ₹10L or ₹1.2Cr
     function formatPrice(value) {
         value = parseInt(value);
         if (value >= 10000000) {
@@ -204,45 +224,71 @@
         return "₹" + new Intl.NumberFormat('en-IN').format(value);
     }
 
-    const minPrice = document.getElementById("minPrice");
-    const maxPrice = document.getElementById("maxPrice");
-    const minPriceLabel = document.getElementById("minPriceLabel");
-    const maxPriceLabel = document.getElementById("maxPriceLabel");
+    var priceSlider = document.getElementById('priceRangeSlider');
 
-    // Initialize labels with proper formatting
-    minPriceLabel.textContent = formatPrice(minPrice.value);
-    maxPriceLabel.textContent = formatPrice(maxPrice.value);
-
-    // Update prices with smooth transitions
-    function updatePrices() {
-        // Ensure min doesn't exceed max
-        if (parseInt(minPrice.value) > parseInt(maxPrice.value)) {
-            minPrice.value = maxPrice.value;
+    noUiSlider.create(priceSlider, {
+        start: [0, 20000000],
+        connect: true,
+        step: 1000,
+        range: {
+            'min': 0,
+            'max': 20000000
+        },
+        format: {
+            to: function (value) {
+                return Math.round(value);
+            },
+            from: function (value) {
+                return Number(value);
+            }
         }
+    });
 
-        // Ensure max doesn't go below min
-        if (parseInt(maxPrice.value) < parseInt(minPrice.value)) {
-            maxPrice.value = minPrice.value;
+    const minInput = document.getElementById('minPrice');
+    const maxInput = document.getElementById('maxPrice');
+
+    const minLabel = document.getElementById('minPriceLabel');
+    const maxLabel = document.getElementById('maxPriceLabel');
+
+    priceSlider.noUiSlider.on('update', function (values, handle) {
+        const minValue = values[0];
+        const maxValue = values[1];
+
+        minInput.value = minValue;
+        maxInput.value = maxValue;
+
+        minLabel.textContent = formatPrice(minValue);
+        maxLabel.textContent = formatPrice(maxValue);
+    });
+    // KM Slider Setup
+    var kmSlider = document.getElementById('kmRangeSlider');
+
+    noUiSlider.create(kmSlider, {
+        start: [0, 200000],
+        connect: true,
+        step: 1000,
+        range: {
+            'min': 0,
+            'max': 200000
+        },
+        format: {
+            to: function (value) {
+                return Math.round(value);
+            },
+            from: function (value) {
+                return Number(value);
+            }
         }
+    });
 
-        // Update labels with formatted values
-        minPriceLabel.textContent = formatPrice(minPrice.value);
-        maxPriceLabel.textContent = formatPrice(maxPrice.value);
+    kmSlider.noUiSlider.on('update', function (values, handle) {
+        document.getElementById('minKmLabel').innerText = values[0] + " KM";
+        document.getElementById('maxKmLabel').innerText = values[1] + " KM";
+        document.getElementById('minKm').value = values[0];
+        document.getElementById('maxKm').value = values[1];
+    });
 
-        // Visual feedback
-        minPriceLabel.classList.add('animate__animated', 'animate__pulse');
-        maxPriceLabel.classList.add('animate__animated', 'animate__pulse');
 
-        setTimeout(() => {
-            minPriceLabel.classList.remove('animate__animated', 'animate__pulse');
-            maxPriceLabel.classList.remove('animate__animated', 'animate__pulse');
-        }, 300);
-    }
-
-    minPrice.addEventListener("input", updatePrices);
-    maxPrice.addEventListener("input", updatePrices);
-
-    // Initialize modal show/hide animations
     const filterModal = document.getElementById('filterModal');
     filterModal.addEventListener('show.bs.modal', function () {
         this.querySelector('.modal-content').classList.add('animate__animated', 'animate__fadeInUp');
@@ -251,6 +297,9 @@
     filterModal.addEventListener('hidden.bs.modal', function () {
         this.querySelector('.modal-content').classList.remove('animate__animated', 'animate__fadeInUp');
     });
+
+    // viewmore button ================================
+    
 </script>
 
 {%endblock%}

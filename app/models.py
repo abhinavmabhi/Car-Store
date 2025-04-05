@@ -55,6 +55,11 @@ class Car(models.Model):
     color = models.CharField(max_length=50)
     owner_count = models.IntegerField(default=1, help_text="Number of previous owners")
     image = models.ImageField(upload_to="car_image")
+
+    image1 = models.ImageField(upload_to="car_image", blank=True, null=True)
+    image2 = models.ImageField(upload_to="car_image", blank=True, null=True)
+    image3 = models.ImageField(upload_to="car_image", blank=True, null=True)
+
     description = models.TextField(blank=True, null=True)
     is_available = models.BooleanField(default=True)
     created_date = models.DateField(auto_now_add=True)
