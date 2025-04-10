@@ -43,7 +43,6 @@ body {
     .sold-out{
         width: 120px;
     }
-   
 }
 @media (max-width: 768px) {
     #mainImage {
@@ -64,3 +63,135 @@ body {
 }
 
 
+
+/* Thumbnail Carousel Styles */
+.thumbnail-carousel {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.carousel-container {
+  position: relative;
+  padding: 0 30px;
+}
+
+.thumbnails-scroll {
+  scroll-behavior: smooth;
+  gap: 10px;
+  padding: 10px 0;
+  max-width: 100%;
+  -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none;  /* Hide scrollbar for Firefox */
+}
+
+.thumbnails-scroll::-webkit-scrollbar {
+  display: none;  /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+.thumbnail-item {
+  flex: 0 0 auto;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid #dee2e6;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.thumbnail-item:hover {
+  border-color: #adb5bd;
+  transform: translateY(-2px);
+}
+
+.thumbnail-item.active {
+  border-color: #0d6efd;
+}
+
+.thumb {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+
+/* Navigation buttons */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #dee2e6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-nav:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-nav:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+.carousel-nav-prev {
+  left: 0;
+}
+
+.carousel-nav-next {
+  right: 0;
+}
+
+.carousel-nav i {
+  font-size: 18px;
+  color: #495057;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+  .thumb {
+    width: 70px;
+    height: 55px;
+  }
+  
+  .carousel-container {
+    padding: 0 25px;
+  }
+  
+  .thumbnails-scroll {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .thumb {
+    width: 60px;
+    height: 45px;
+  }
+  
+  .carousel-container {
+    padding: 0 20px;
+  }
+  
+  .thumbnails-scroll {
+    gap: 6px;
+  }
+  
+  .carousel-nav {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .carousel-nav i {
+    font-size: 16px;
+  }
+}

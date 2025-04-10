@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static 'css/car-details.css' %}">
 
 
-<div class="container " style="margin-top: 90px;">
+<div class="container " style="margin-top: 90px; margin-bottom: 50px;">
     <div class="card shadow p-4">
         <div class="row g-4">
             <!-- Left Column: Images -->
@@ -25,59 +25,81 @@
                
 
                 <!-- Thumbnail Carousel -->
-                <div id="thumbCarousel" class="position-relative mt-3 d-flex justify-content-center">
-                    <div class="d-flex justify-content-center gap-2 overflow-auto px-4 "
-                        style="scroll-behavior: smooth;" id="carouselScroll">
-                        <img src="{{ car.image.url }}" class="img-thumbnail thumb" alt="Main"
-                            style="width: 80px; cursor: pointer;">
-                        {% if car.image1 %}
-                        <img src="{{ car.image1.url }}" class="img-thumbnail thumb" alt="Extra 1"
-                            style="width: 80px; cursor: pointer;">
-                        {% endif %}
-
-                        {% if car.image2 %}
-                        <img src="{{ car.image2.url }}" class="img-thumbnail thumb" alt="Extra 1"
-                            style="width: 80px; cursor: pointer;">
-                        {% endif %}
-
-                        {% if car.image3 %}
-                        <img src="{{ car.image3.url }}" class="img-thumbnail thumb" alt="Extra 3"
-                            style="width: 80px; cursor: pointer;">
-                        {% endif %}
-
-                        {% if car.interior1 %}
-                        <img src="{{ car.interior1.url }}" class="img-thumbnail thumb" alt="Extra 1"
-                            style="width: 80px; cursor: pointer;">
-                        {% endif %}
-
-                        {% if car.interior2 %}
-                        <img src="{{ car.interior2.url }}" class="img-thumbnail thumb" alt="Extra 2"
-                            style="width: 80px; cursor: pointer;">
-                        {% endif %}
-
-                        {% if car.interior3 %}
-                        <img src="{{ car.interior3.url }}" class="img-thumbnail thumb" alt="Extra 3"
-                            style="width: 80px; cursor: pointer;">
-                        {% endif %}
-
-                        {% if car.interior4 %}
-                        <img src="{{ car.interior4.url }}" class="img-thumbnail thumb" alt="Extra 1"
-                            style="width: 80px; cursor: pointer;">
-                        {% endif %}
-
-                        {% if car.otherimage2 %}
-                        <img src="{{ car.otherimage2.url }}" class="img-thumbnail thumb" alt="Extra 2"
-                            style="width: 80px; cursor: pointer;">
-                        {% endif %}
-
-                        {% if car.otherimage2 %}
-                        <img src="{{ car.otherimage2.url }}" class="img-thumbnail thumb" alt="Extra 3"
-                            style="width: 80px; cursor: pointer;">
-                        {% endif %}
-                    </div>
-
-
-                </div>
+                <!-- Thumbnail Carousel - Improved Design -->
+<div class="thumbnail-carousel mt-3">
+    <div class="carousel-container position-relative">
+      <!-- Previous button -->
+      <button class="carousel-nav carousel-nav-prev" id="thumbPrev" onclick="scrollCarousel('left')" aria-label="Previous images">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      
+      <!-- Thumbnails container -->
+      <div class="thumbnails-scroll d-flex align-items-center overflow-hidden" id="carouselScroll">
+        <div class="thumbnail-item active">
+          <img src="{{ car.image.url }}" class="thumb" alt="Main image">
+        </div>
+        
+        {% if car.image1 %}
+        <div class="thumbnail-item">
+          <img src="{{ car.image1.url }}" class="thumb" alt="Extra 1">
+        </div>
+        {% endif %}
+        
+        {% if car.image2 %}
+        <div class="thumbnail-item">
+          <img src="{{ car.image2.url }}" class="thumb" alt="Extra 2">
+        </div>
+        {% endif %}
+        
+        {% if car.image3 %}
+        <div class="thumbnail-item">
+          <img src="{{ car.image3.url }}" class="thumb" alt="Extra 3">
+        </div>
+        {% endif %}
+        
+        {% if car.interior1 %}
+        <div class="thumbnail-item">
+          <img src="{{ car.interior1.url }}" class="thumb" alt="Interior 1">
+        </div>
+        {% endif %}
+        
+        {% if car.interior2 %}
+        <div class="thumbnail-item">
+          <img src="{{ car.interior2.url }}" class="thumb" alt="Interior 2">
+        </div>
+        {% endif %}
+        
+        {% if car.interior3 %}
+        <div class="thumbnail-item">
+          <img src="{{ car.interior3.url }}" class="thumb" alt="Interior 3">
+        </div>
+        {% endif %}
+        
+        {% if car.interior4 %}
+        <div class="thumbnail-item">
+          <img src="{{ car.interior4.url }}" class="thumb" alt="Interior 4">
+        </div>
+        {% endif %}
+        
+        {% if car.otherimage2 %}
+        <div class="thumbnail-item">
+          <img src="{{ car.otherimage2.url }}" class="thumb" alt="Other 2">
+        </div>
+        {% endif %}
+        
+        {% if car.otherimage2 %}
+        <div class="thumbnail-item">
+          <img src="{{ car.otherimage2.url }}" class="thumb" alt="Other 3">
+        </div>
+        {% endif %}
+      </div>
+      
+      <!-- Next button -->
+      <button class="carousel-nav carousel-nav-next" id="thumbNext" onclick="scrollCarousel('right')" aria-label="Next images">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </div>
 
             </div>
 

@@ -63,9 +63,7 @@ class Car(models.Model):
     interior3 = models.ImageField(upload_to="car_interior1", blank=True, null=True)
     interior4 = models.ImageField(upload_to="car_interior1", blank=True, null=True)
 
-    otherimage1 = models.ImageField(upload_to="car_other-img", blank=True, null=True)
-    otherimage2 = models.ImageField(upload_to="car_other-img", blank=True, null=True)
-
+    
 
     description = models.TextField(blank=True, null=True)
     is_available = models.BooleanField(default=True)

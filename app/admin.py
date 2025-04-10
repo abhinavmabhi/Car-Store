@@ -98,7 +98,7 @@ class CarAdmin(admin.ModelAdmin):
                 'price', 'registration', 'color', 'owner_count', 'description',
                 'image','image1','image2','image3',
                 'interior1','interior2','interior3',
-                'otherimage1','otherimage2','urgent',
+                'urgent',
                 'is_available', 'year', 'total_km_run'
             )
         }),
