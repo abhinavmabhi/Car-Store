@@ -55,7 +55,7 @@
 
 @media (max-width: 768px) {
     .hero-section {
-        height: 50vh;
+        height: 40vh;
     }
     .icon-box {
         width: 150px;

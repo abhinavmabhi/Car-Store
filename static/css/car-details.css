@@ -43,6 +43,7 @@ body {
     .sold-out{
         width: 120px;
     }
+   
 }
 @media (max-width: 768px) {
     #mainImage {
