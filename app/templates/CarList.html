@@ -33,12 +33,12 @@
 <!-- Filter Modal -->
 <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md modal-dialog-centered">
-        <div class="modal-content border-0 overflow-hidden">
+        <div class="modal-content border-0 overflow-hidden rounded-5">
             <!-- Modal Header -->
-            <div class="modal-header bg-gradient bg-dark text-white py-2">
+            <div class="modal-header bg-gradient bg-light text-white py-2">
                 <div class="w-100 text-center position-relative">
-                    <h5 class="modal-title fw-semibold mb-0" id="filterModalLabel">
-                        <i class="fas fa-sliders-h me-2"></i> Filter
+                    <h5 class="modal-title fw-semibold mb-0 text-dark" id="filterModalLabel">
+                        <i class="fas fa-sliders-h me-2 text-dark"></i> Filter
                     </h5>
                 </div>
             </div>
@@ -98,22 +98,45 @@
                     </div>
 
                     <!-- owner count  -->
-                    <div class="card border-1 shadow-sm mb-3">
-                        <div class="card-header bg-light py-2">
-                            <h6 class="mb-0 fw-semibold"><i class="fas fa-user me-2 text-primary"></i> Ownership</h6>
-                        </div>
-                        <div class="card-body py-2">
-                            <select class="form-select border-0 shadow-sm" name="owner_count">
-                                <option value="">All</option>
-                                <option value="1">1st</option>
-                                <option value="2">2nd</option>
-                                <option value="3">3rd</option>
-                                <option value="4">4th</option>
-                                <option value="5">5th</option>
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="card border-1 shadow-sm mb-3">
+                                <div class="card-header bg-light py-2">
+                                    <h6 class="mb-0 fw-semibold"><i class="fas fa-user me-2 text-primary"></i> Ownership
+                                    </h6>
+                                </div>
+                                <div class="card-body py-2">
+                                    <select class="form-select border-0 shadow-sm" name="owner_count">
+                                        <option value="">All</option>
+                                        <option value="1">1st</option>
+                                        <option value="2">2nd</option>
+                                        <option value="3">3rd</option>
+                                        <option value="4">4th</option>
+                                        <option value="5">5th</option>
 
 
-                            </select>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-6">
+                            <div class="card border-1 shadow-sm mb-3">
+                                <div class="card-header bg-light py-2">
+                                    <h6 class="mb-0 fw-semibold">
+                                        <i class="fas fa-user me-2 text-primary"></i> Year
+                                    </h6>
+                                </div>
+                                <div class="card-body py-2">
+                                    <select class="form-select border-0 shadow-sm" name="year" id="year">
+                                        <option value="">All</option>
+                                        {% for value, label in year_ranges %}
+                                            <option value="{{ value }}" {% if value == selected_year %}selected{% endif %}>{{ label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
 
                     <!-- Transmission & Fuel -->
@@ -169,7 +192,7 @@
 </div>
 
 <!-- h1========================= -->
-<h3 class="h3 d-flex justify-content-center mt-5 animate-text">Exclusive Collection of Pre-Owned Cars</h3>
+<h3 class="h3 d-flex justify-content-center mt-5 animate-text">Collection of Pre-Owned Cars</h3>
 
 <!-- cars-------------------------------------- -->
 <div class="container mt-5">
@@ -178,16 +201,26 @@
         <div class="col-12 col-md-4">
             <div class="card position-relative mb-5">
                 {% if not c.is_available %}
-                <span class="badge bg-danger position-absolute top-0 end-0 m-2" style="height: 30px; width: 90px;"
+    <img src="{% static 'images/soldout.png' %}" 
+         alt="Sold Out"
+         class="position-absolute top-0 end-0 m-2"
+         style="height: 130px; width: 190px; object-fit: contain;"
+         data-aos="zoom-in">
+{% endif %}
+
+
+                {% if c.is_available and c.urgent %}
+                <span class="badge bg-primary position-absolute top-0 end-0 m-2" style="height: 30px; width: 90px;"
                     data-aos="zoom-in">
-                    <p class="mt-1">Sold Out</p>
+                    <p class="mt-1">Urgent</p>
                 </span>
                 {% endif %}
+
                 <img src="{{ c.image.url }}" class="card-img-top img-fluid img-cover" alt="{{ c.name }}">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <h5 class="card-title mb-4">₹ {{ c.price|format_price }}</h5>
+                            <h5 class="card-title mb-4"><b>₹ {{ c.price|format_price }}</b></h5>
                         </div>
                     </div>
                     <div class="row">
@@ -202,7 +235,8 @@
                             <p data-aos="fade-up"><strong>Year:</strong> {{ c.year }}</p>
                             <p data-aos="fade-up"><strong>Fuel Type:</strong> {{ c.fuel_type }}</p>
                         </div>
-                        <a href="{% url 'car-details' c.id %}" class="btn btn-primary mt-2 w-50 d-flex justify-content-center mx-auto">Details</a>
+                        <a href="{% url 'car-details' c.id %}"
+                            class="btn btn-primary mt-2 w-50 d-flex justify-content-center mx-auto">Details</a>
                     </div>
                 </div>
             </div>
@@ -299,7 +333,7 @@
     });
 
     // viewmore button ================================
-    
+
 </script>
 
 {%endblock%}

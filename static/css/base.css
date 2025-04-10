@@ -1,6 +1,6 @@
 
 body {
-    font-family: "Roboto Slab", serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,6 +9,7 @@ body {
 
 
 .navbar {
+    font-family: 'Poppins', sans-serif;
     position: fixed;
     top: 0;
     left: 0;
@@ -91,11 +92,11 @@ body {
 
     .nav-links {
         position: fixed;
-        top: 70px;
+        top: 62px;
         left: -100%;
         width: 100vw;
         height: calc(100vh - 70px);
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.5);
         flex-direction: column;
         align-items: center;
         padding-top: 40px;
@@ -112,3 +113,52 @@ body {
         display: block;
     }
 }
+
+/*wtsapp button */
+
+
+.fixed-contact-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fixed-contact-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    font-size: 24px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+}
+
+.call-btn {
+    background-color: #0d6efd;
+}
+
+.fixed-contact-buttons a:hover {
+    transform: scale(1.1);
+}
+
+
+/* footer================================== */
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+

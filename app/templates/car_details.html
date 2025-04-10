@@ -11,21 +11,74 @@
         <div class="row g-4">
             <!-- Left Column: Images -->
             <div class="col-md-6 text-center">
-                <img id="mainImage" src="{{ car.image.url }}" alt="Car Image" class="car-img img-fluid rounded mb-3">
+              
+                    <!-- Sold Out Overlay Image -->
+                    {% if not car.is_available %}
+                        <img src="{% static 'images/soldout.png' %}" 
+                             alt="Sold Out" 
+                             class="sold-out position-absolute translate-middle-x mt-2"
+                             
+                    {% endif %}
+                
+                    <!-- Main Car Image -->
+                    <img id="mainImage" src="{{ car.image.url }}" alt="Car Image" class="car-img img-fluid rounded mb-3">
+               
 
-                <div class="d-flex justify-content-center gap-2">
-                    <img src="{{ car.image.url }}" class="img-thumbnail thumb" alt="Main" style="width: 80px; cursor: pointer;">
-                    
-                    {% if car.image1 %}
-                        <img src="{{ car.image1.url }}" class="img-thumbnail thumb" alt="Extra 1" style="width: 80px; cursor: pointer;">
-                    {% endif %}
-                    {% if car.image2 %}
-                        <img src="{{ car.image2.url }}" class="img-thumbnail thumb" alt="Extra 2" style="width: 80px; cursor: pointer;">
-                    {% endif %}
-                    {% if car.image3 %}
-                        <img src="{{ car.image3.url }}" class="img-thumbnail thumb" alt="Extra 3" style="width: 80px; cursor: pointer;">
-                    {% endif %}
+                <!-- Thumbnail Carousel -->
+                <div id="thumbCarousel" class="position-relative mt-3 d-flex justify-content-center">
+                    <div class="d-flex justify-content-center gap-2 overflow-auto px-4 "
+                        style="scroll-behavior: smooth;" id="carouselScroll">
+                        <img src="{{ car.image.url }}" class="img-thumbnail thumb" alt="Main"
+                            style="width: 80px; cursor: pointer;">
+                        {% if car.image1 %}
+                        <img src="{{ car.image1.url }}" class="img-thumbnail thumb" alt="Extra 1"
+                            style="width: 80px; cursor: pointer;">
+                        {% endif %}
+
+                        {% if car.image2 %}
+                        <img src="{{ car.image2.url }}" class="img-thumbnail thumb" alt="Extra 1"
+                            style="width: 80px; cursor: pointer;">
+                        {% endif %}
+
+                        {% if car.image3 %}
+                        <img src="{{ car.image3.url }}" class="img-thumbnail thumb" alt="Extra 3"
+                            style="width: 80px; cursor: pointer;">
+                        {% endif %}
+
+                        {% if car.interior1 %}
+                        <img src="{{ car.interior1.url }}" class="img-thumbnail thumb" alt="Extra 1"
+                            style="width: 80px; cursor: pointer;">
+                        {% endif %}
+
+                        {% if car.interior2 %}
+                        <img src="{{ car.interior2.url }}" class="img-thumbnail thumb" alt="Extra 2"
+                            style="width: 80px; cursor: pointer;">
+                        {% endif %}
+
+                        {% if car.interior3 %}
+                        <img src="{{ car.interior3.url }}" class="img-thumbnail thumb" alt="Extra 3"
+                            style="width: 80px; cursor: pointer;">
+                        {% endif %}
+
+                        {% if car.interior4 %}
+                        <img src="{{ car.interior4.url }}" class="img-thumbnail thumb" alt="Extra 1"
+                            style="width: 80px; cursor: pointer;">
+                        {% endif %}
+
+                        {% if car.otherimage2 %}
+                        <img src="{{ car.otherimage2.url }}" class="img-thumbnail thumb" alt="Extra 2"
+                            style="width: 80px; cursor: pointer;">
+                        {% endif %}
+
+                        {% if car.otherimage2 %}
+                        <img src="{{ car.otherimage2.url }}" class="img-thumbnail thumb" alt="Extra 3"
+                            style="width: 80px; cursor: pointer;">
+                        {% endif %}
+                    </div>
+
+
                 </div>
+
             </div>
 
             <!-- Right Column: Car Details -->
@@ -72,10 +125,10 @@
                     </div>
                     <div class="col">
                         <div class="cardd d-flex flex-row align-items-center p-2">
-                            <i class="bi bi-droplet-half text-warning me-2 fs-4"></i>
+                            <i class="bi bi-card-text text-warning me-2 fs-4"></i>
                             <div>
-                                <div class="fw-bold">Mileage</div>
-                                <div>{{ car.mileage }} km/l</div>
+                                <div class="fw-bold">Registration</div>
+                                <div>{{ car.registration }}</div>
                             </div>
                         </div>
                     </div>
@@ -107,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="mt-4">
                     <a href="#" class="btn btn-primary">Book Test Drive</a>
                     <a href="#" class="btn btn-outline-secondary ms-2">Contact Seller</a>
@@ -120,6 +173,8 @@
         <h5 class="mt-4"><i class="bi bi-info-circle text-primary me-2"></i>Description</h5>
         <p class="text-muted">{{ car.description }}</p>
         {% endif %}
+
+        
     </div>
 </div>
 
@@ -128,10 +183,31 @@
     const thumbs = document.querySelectorAll('.thumb');
 
     thumbs.forEach(thumb => {
-        thumb.addEventListener('click', () => {
+        thumb.addEventListener('mouseenter', () => {
             mainImage.src = thumb.src;
+
+
+            thumbs.forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        });
+        thumb.addEventListener('mouseleave', () => {
+
         });
     });
-</script> 
+
+
+
+    // carosel img button 
+    function scrollCarousel(direction) {
+        const container = document.getElementById('carouselScroll');
+        const scrollAmount = 100;
+
+        if (direction === 'left') {
+            container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        } else {
+            container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    }
+</script>
 
 {%endblock%}

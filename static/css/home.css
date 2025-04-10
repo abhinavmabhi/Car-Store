@@ -1,5 +1,5 @@
 body {
-    font-family: "Roboto Slab", serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container-fluid {
@@ -201,7 +201,13 @@ body {
     transform: scale(1.1);
     /* Apply scale smoothly */
 }
-
+.search-input{
+    border-radius: 30px 0px 30px 0px;
+    height: 55px;
+}
+.search-btn{
+    border-radius: 30px 0px 30px 0px;
+}
 @keyframes rotate {
     from {
         transform: rotate(0deg);
@@ -239,7 +245,7 @@ body {
     }
 
     .btn {
-        width: 16% !important;
+        width: 45% !important;
         /* Adjust button width */
         font-size: 0.9rem;
         padding: 8px 15px;

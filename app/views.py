@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import View
 from .models import Car,Car_Type,Fuel_Type
 from django.db.models import Q
+from django.core.mail import send_mail
+from django.contrib import messages
+from .forms import Contact_Form
 
 # Create your views here.
 
@@ -53,7 +56,38 @@ def List_all_cars(request):
     if owner_count:
         qs=qs.filter(owner_count=owner_count)
 
-    return render(request,"CarList.html",{"car":qs,"search":search,"car_types": car_types})
+    year_filter = request.GET.get("year", "")   
+
+    year_ranges = [
+    ("2001-2005", "2001 - 2005"),
+    ("2006-2010", "2006 - 2010"),
+    ("2011-2015", "2011 - 2015"),
+    ("2016-2020", "2016 - 2020"),
+    ("2021-2025", "2021 - 2025"),
+]
+
+    if year_filter:
+        try:
+            start_year, end_year = map(int, year_filter.split("-"))
+            qs = qs.filter(year__gte=start_year, year__lte=end_year)
+        except:
+            pass
+
+    context = {
+    "car": qs,
+    "search": search,
+    "car_types": car_types,
+    "selected_year": year_filter,
+    "selected_car_type": car_type,
+    "selected_transmission": transmission,
+    "selected_fuel_type": fuel_type,
+    "selected_owner_count": owner_count,
+    "year_ranges": year_ranges, 
+
+}
+    return render(request, "CarList.html", context)
+
+
 
 def Car_details_view(request,id):
 
@@ -63,5 +97,53 @@ def Car_details_view(request,id):
 
 
 
+def about_view(request):
+    
+    return render(request,"about.html")
+
+def Service_view(request):
+
+    return render(request,"service.html")
 
 
+
+def Contact_view(request):
+    if request.method=="POST":
+        form=Contact_Form(request.POST)
+        if form.is_valid():
+            messages.success(request,"Successfully submitted the Form")
+            contact=form.save()
+
+            subject=f"New Enquiry Submitted - {contact.message}"
+
+            message=f"""
+
+Name: {contact.name}
+Phone: {contact.phone}
+email: {contact.email}
+Message: {contact.message}            
+"""
+            
+            html_message = f"""
+            <p><strong>Name:</strong> {contact.name}</p>
+            <p><strong>Phone:</strong> <a href="tel:{contact.phone}">{contact.phone}</a></p>
+            <p><strong>Email:</strong> {contact.email}</p>
+            <p><strong>Message:</strong> {contact.message}</p>
+            """
+            send_mail(
+                subject=subject,
+                message=message,
+                from_email="abhinavabhi192018@gmail.com",
+                recipient_list=["abhinavvvv.m@gmail.com"],
+                fail_silently=False,
+                html_message=html_message,
+            )
+        else:
+            messages.error(request,"Form submission failed. Please try again")
+
+    else:
+        form=Contact_Form()
+    return render(request,"contact.html",{"form":form,})
+
+def Gallery_view(request):
+    return render(request,'gallery.html')

@@ -1,25 +1,99 @@
+/* General */
 body {
-    font-family: "Roboto Slab", serif;
-  
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Card Styling */
 .card {
     border-radius: 20px;
     transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
 }
 
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.4);
 }
 
-.card img {
-    border-radius: 20px 20px 5px 5px;
-    height: 200px;
-    width: 100%;
+/* Modal Specific Cards */
+.modal .card-header {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    padding: 8px 16px;
+}
+
+.modal .card-body {
+    padding: 10px 16px;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+/* Filter Labels */
+.badge {
+    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 12px;
+}
+
+
+/* Custom Form Select */
+.form-select {
+    border-radius: 8px;
+    box-shadow: none;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    padding: 8px 12px;
+    font-size: 14px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-size: 16px 12px;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+}
+.card-img-top{
+    height: 250px;
     object-fit: cover;
+    border-radius: 22px 20px 0px 0px;
 }
 
+/* Gradient Background */
+.bg-gradient {
+    background: linear-gradient(135deg, #1e1e1e 0%, #343a40 100%);
+}
+
+/* Sliders */
+.noUi-connect {
+    background: #8bc3ff;
+    height: 8px;
+    border-radius: 4px;
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 20px;
+    height: 20px;
+    background: #004998;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    top: -6px;
+    margin-right: 7px;
+}
+
+.noUi-horizontal .noUi-handle:hover,
+.noUi-horizontal .noUi-handle:active {
+    background-color: #ff0000;
+}
+
+/* Modal Buttons */
+.modal-footer .btn {
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Input & Layout Adjustments */
 #search {
     width: 400px;
     margin-left: 180px;
@@ -30,22 +104,23 @@ body {
     margin-bottom: 15px;
 }
 
-.bg-gradient {
-    background: linear-gradient(135deg, #1e1e1e 0%, #343a40 100%);
-}
-
-.form-select {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-    background-size: 16px 12px;
-    cursor: pointer;
-}
-
 .filter-button {
     position: absolute;
     display: flex;
     justify-content: center;
     left: 130px;
     margin-top: 5px;
+}
+.noUi-handle:after, .noUi-handle:before {
+    content: "";
+    background: blue;
+    display: block;
+    position: absolute;
+    height: 14px;
+    width: 0px;
+    background: #E8E7E6;
+    left: 10px;
+    top: 6px;
 }
 
 /* Responsive Styles */
@@ -73,7 +148,7 @@ body {
     }
     .filter-button {
         position: static;
-        width: 152%;
+        /* width: 152%; */
         text-align: center;
         margin-top: 10px;
     }
@@ -94,9 +169,15 @@ body {
 @media (max-width: 575.98px) {
     .card {
         margin-bottom: 3rem !important;
-        border: 1px solid black;
     }
 }
-.noUi-connect {
-    background: rgba(255, 0, 0, 0.9);
+
+@media (max-width: 768px) {
+    .h3 {
+        font-weight: 200;
+        width: 75%;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 18px;
+    }
 }

@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_block %}
+<link rel="stylesheet" href="{% static 'css/service.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<section class="hero-section position-relative">
+    <div class="hero-overlay text-center animate__animated animate__fadeIn">
+        <h1 class="display-4 fw-bold ">Services</h1>
+        <p class="lead ">Top-notch support & offerings tailored for
+            luxury car buyers</p>
+        <div class="mt-4 ">
+            <a href="#about-content" class="btn btn-danger btn-lg rounded-pill px-4">Explore Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section with AOS animations -->
+<section id="services" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge bg-danger px-3 py-2 mb-2">PREMIUM SERVICES</span>
+      <h2 class="fw-bold text-danger display-5">What We Offer</h2>
+      <p class="text-muted w-75 mx-auto">Experience quality, transparency, and performance in every step of your luxury car buying journey</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="p-4 rounded shadow-sm service-card text-center h-100 border-top border-danger border-4 hover-card">
+          <div class="icon-box mb-4">
+            <i class="fas fa-tools fa-3x text-danger"></i>
+          </div>
+          <h5 class="fw-bold">Comprehensive Inspection</h5>
+          <p>100+ point checks by certified mechanics for your safety and satisfaction.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="p-4 rounded shadow-sm service-card text-center h-100 border-top border-danger border-4 hover-card">
+          <div class="icon-box mb-4">
+            <i class="fas fa-car-side fa-3x text-danger"></i>
+          </div>
+          <h5 class="fw-bold">Certified Premium Cars</h5>
+          <p>Every car is handpicked, fully serviced, and showroom ready.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="p-4 rounded shadow-sm service-card text-center h-100 border-top border-danger border-4 hover-card">
+          <div class="icon-box mb-4">
+            <i class="fas fa-hand-holding-usd fa-3x text-danger"></i>
+          </div>
+          <h5 class="fw-bold">Flexible Financing</h5>
+          <p>Customized loan options to make your dream car affordable.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="p-4 rounded shadow-sm service-card text-center h-100 border-top border-danger border-4 hover-card">
+          <div class="icon-box mb-4">
+            <i class="fas fa-road fa-3x text-danger"></i>
+          </div>
+          <h5 class="fw-bold">Personalized Test Drives</h5>
+          <p>Schedule test drives from home or at our showroom.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="p-4 rounded shadow-sm service-card text-center h-100 border-top border-danger border-4 hover-card">
+          <div class="icon-box mb-4">
+            <i class="fas fa-shield-alt fa-3x text-danger"></i>
+          </div>
+          <h5 class="fw-bold">Warranty & Support</h5>
+          <p>Extended warranties and free service for up to 1 year.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="p-4 rounded shadow-sm service-card text-center h-100 border-top border-danger border-4 hover-card">
+          <div class="icon-box mb-4">
+            <i class="fas fa-history fa-3x text-danger"></i>
+          </div>
+          <h5 class="fw-bold">Verified Vehicle History</h5>
+          <p>Transparency with service records, ownership, and accident history.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Additional Services -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="fw-bold text-danger">Additional Services</h2>
+      <p class="text-muted">More ways we support your premium car ownership</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="d-flex align-items-start service-card-horizontal p-4 rounded shadow-sm hover-card">
+          <div class="icon-box me-4">
+            <i class="fas fa-exchange-alt fa-2x text-danger"></i>
+          </div>
+          <div>
+            <h5 class="fw-bold">Trade-In Program</h5>
+            <p>Get the best value for your current vehicle when upgrading to a new luxury car.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="d-flex align-items-start service-card-horizontal p-4 rounded shadow-sm hover-card">
+          <div class="icon-box me-4">
+            <i class="fas fa-car-crash fa-2x text-danger"></i>
+          </div>
+          <div>
+            <h5 class="fw-bold">Insurance Assistance</h5>
+            <p>Connect with premium insurance providers specialized in luxury vehicles.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="d-flex align-items-start service-card-horizontal p-4 rounded shadow-sm hover-card">
+          <div class="icon-box me-4">
+            <i class="fas fa-paint-brush fa-2x text-danger"></i>
+          </div>
+          <div>
+            <h5 class="fw-bold">Customization Services</h5>
+            <p>Personalize your vehicle with premium upgrades and modifications.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="d-flex align-items-start service-card-horizontal p-4 rounded shadow-sm hover-card" style="margin-right: 30px;">
+          <div class="icon-box me-4">
+            <i class="fas fa-headset fa-2x text-danger"></i>
+          </div>
+          <div>
+            <h5 class="fw-bold">24/7 Customer Support</h5>
+            <p>Dedicated assistance whenever you need help with your vehicle.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Call to Action with Counter Stats -->
+<section class="py-5 bg-danger text-white">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+        <h2 class="fw-bold display-5">Ready to Find Your Perfect Ride?</h2>
+        <p class="mb-4 lead">Explore our wide range of premium second-hand cars with full assurance and unmatched support.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="{% url 'car-list' %}" class="btn btn-light btn-lg rounded-pill px-4 text-danger fw-bold">Browse Cars</a>
+          <a href="#" class="btn btn-outline-light btn-lg rounded-pill px-4">Contact Us</a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="row text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-6 mb-4">
+            <div class="p-3 bg-white bg-opacity-10 rounded">
+              <h3 class="fw-bold display-4 counter">500+</h3>
+              <p>Premium Cars Sold</p>
+            </div>
+          </div>
+          <div class="col-6 mb-4">
+            <div class="p-3 bg-white bg-opacity-10 rounded">
+              <h3 class="fw-bold display-4 counter">98%</h3>
+              <p>Customer Satisfaction</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 bg-white bg-opacity-10 rounded">
+              <h3 class="fw-bold display-4 counter">15+</h3>
+              <p>Years Experience</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 bg-white bg-opacity-10 rounded">
+              <h3 class="fw-bold display-4 counter">24/7</h3>
+              <p>Customer Support</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize AOS animation library
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+      });
+      
+      // Add scroll behavior for smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId !== '#') {
+            document.querySelector(targetId).scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Add hover effect for service cards
+      const serviceCards = document.querySelectorAll('.hover-card');
+      serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-10px)';
+          this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+          this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+        });
+      });
+    });
+  </script>
+
+  {%endblock%}

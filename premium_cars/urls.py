@@ -25,6 +25,10 @@ urlpatterns = [
     path("",views.Home_page_view, name="home"),
     path("car/list/",views.List_all_cars,name="car-list"),
     path("details/<int:id>/",views.Car_details_view,name="car-details"),
+    path("about/",views.about_view,name="about"),
+    path("service/",views.Service_view,name="service"),
+    path("contact/",views.Contact_view,name='contact'),
+    path('gallery/',views.Gallery_view,name="gallery")
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

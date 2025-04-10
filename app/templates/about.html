@@ -1,0 +1,429 @@
+{%extends 'base.html'%}
+{% load Custom_price %}
+{% load static %}
+{%block main_block%}
+<link rel="stylesheet" href="{% static 'css/service.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+<div class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-text animate__animated animate__fadeIn">About Us
+        <div>
+            <a href="#about-content" class="btn btn-danger btn-lg px-4 rounded-pill">
+                <i class="fa-solid fa-angles-down me-2"></i>Discover
+            </a>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- About Content Section with Enhanced Animation -->
+<section id="about-content" class="py-5 my-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0 px-4" data-aos="fade-right" data-aos-duration="1000">
+                <div class="position-relative">
+                    <img src="{% static 'images/head-image.jpg' %}" alt="Showroom"
+                        class="img-fluid rounded-lg shadow-lg">
+                    <div class="experience-badge position-absolute bg-danger text-white p-3 rounded-circle"
+                        style="bottom: -20px; right: -20px; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; flex-direction: column; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+                        <span class="h3 mb-0 fw-bold">15+</span>
+                        <span class="small">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 px-4" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                <h6 class="text-danger fw-bold text-uppercase letter-spacing-2 mb-3">Welcome to Carstore</h6>
+                <h2 class="display-5 fw-bold mb-4">The Premier Destination</h2>
+                <p class="text-muted fs-5 mb-4" style="text-align: justify; line-height: 1.8;">
+                    At Carstore, we believe luxury should be accessible to all. With a carefully curated collection of
+                    premium pre-owned cars,
+                    we bring you quality, class, and confidence — all under one roof. Our vehicles are thoroughly
+                    inspected and certified,
+                    ensuring peace of mind with every purchase.
+                </p>
+                <p class="text-muted fs-5 mb-4" style="line-height: 1.8;">
+                    Whether you're looking for a BMW, Audi, Mercedes, or Jaguar, we've got you covered with the best
+                    deals in town.
+                    Visit our showroom or browse online to experience premium cars like never before.
+                </p>
+                <div class="d-flex gap-3 mt-4">
+                    <a href="{% url 'car-list' %}" class="btn btn-danger btn-lg px-4 rounded-pill">Explore Inventory</a>
+                    <a href="tel:+919207773847" class="btn btn-outline-dark btn-lg px-4 rounded-pill">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Counter Section -->
+<section class="bg-light py-5">
+    <div class="container py-4">
+        <div class="row g-4 text-center">
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="counter-item py-4">
+                    <i class="fa-solid fa-car-side fa-3x text-danger mb-3"></i>
+                    <h2 class="fw-bold display-5 counter text-black"><span class="counter-value"
+                            data-count="5000">0</span>+</h2>
+                    <p class="text-muted mb-0">Vehicles Sold</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="counter-item py-4">
+                    <i class="fa-solid fa-users fa-3x text-danger mb-3"></i>
+                    <h2 class="fw-bold display-5 counter text-black"><span class="counter-value"
+                            data-count="3500">0</span>+</h2>
+                    <p class="text-muted mb-0">Happy Customers</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="counter-item py-4">
+                    <i class="fa-solid fa-certificate fa-3x text-danger mb-3"></i>
+                    <h2 class="fw-bold display-5 counter text-black"><span class="counter-value"
+                            data-count="100">0</span>+</h2>
+                    <p class="text-muted mb-0">Quality Checks</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="counter-item py-4">
+                    <i class="fa-solid fa-award fa-3x text-danger mb-3"></i>
+                    <h2 class="fw-bold display-5 counter text-black"><span class="counter-value"
+                            data-count="15">0</span>+</h2>
+                    <p class="text-muted mb-0">Years of Excellence</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section with Improved Icons and Animation -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h6 class="text-danger fw-bold text-uppercase letter-spacing-2">Our Advantages</h6>
+            <h2 class="display-5 fw-bold">Why Choose <span class="text-danger">Carstore</span>?</h2>
+            <div class="divider mx-auto bg-danger" style="height: 4px; width: 70px; margin-top: 20px;"></div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card h-100 p-4 border rounded shadow-hover transition-300">
+                    <div
+                        class="icon-box d-inline-flex align-items-center justify-content-center rounded-circle bg-danger bg-opacity-10 p-3 mb-4">
+                        <i class="fa-solid fa-car-battery text-danger fa-2x"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Certified Vehicles</h4>
+                    <p class="text-muted mb-0">Every vehicle in our inventory undergoes 100+ rigorous quality checks by
+                        our certified technicians before reaching our showroom floor.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card h-100 p-4 border rounded shadow-hover transition-300">
+                    <div
+                        class="icon-box d-inline-flex align-items-center justify-content-center rounded-circle bg-danger bg-opacity-10 p-3 mb-4">
+                        <i class="fa-solid fa-handshake text-danger fa-2x"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Trust & Transparency</h4>
+                    <p class="text-muted mb-0">We provide complete vehicle history, transparent pricing details, and
+                        absolutely no hidden charges. Your trust is our priority.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card h-100 p-4 border rounded shadow-hover transition-300">
+                    <div
+                        class="icon-box d-inline-flex align-items-center justify-content-center rounded-circle bg-danger bg-opacity-10 p-3 mb-4">
+                        <i class="fa-solid fa-screwdriver-wrench text-danger fa-2x"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Premium Support</h4>
+                    <p class="text-muted mb-0">Enjoy complimentary maintenance service for up to 1 year with extended
+                        warranty options and 24/7 roadside assistance.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-card h-100 p-4 border rounded shadow-hover transition-300">
+                    <div
+                        class="icon-box d-inline-flex align-items-center justify-content-center rounded-circle bg-danger bg-opacity-10 p-3 mb-4">
+                        <i class="fa-solid fa-credit-card text-danger fa-2x"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Flexible Financing</h4>
+                    <p class="text-muted mb-0">Custom financing solutions tailored to your budget with competitive
+                        interest rates and flexible payment terms.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-card h-100 p-4 border rounded shadow-hover transition-300">
+                    <div
+                        class="icon-box d-inline-flex align-items-center justify-content-center rounded-circle bg-danger bg-opacity-10 p-3 mb-4">
+                        <i class="fa-solid fa-shield text-danger fa-2x"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Extended Warranty</h4>
+                    <p class="text-muted mb-0">Drive with confidence knowing your vehicle is protected with our
+                        comprehensive warranty packages.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="service-card h-100 p-4 border rounded shadow-hover transition-300">
+                    <div
+                        class="icon-box d-inline-flex align-items-center justify-content-center rounded-circle bg-danger bg-opacity-10 p-3 mb-4">
+                        <i class="fa-solid fa-headset text-danger fa-2x"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Dedicated Support</h4>
+                    <p class="text-muted mb-0">Our customer service team is available to assist you with any queries or
+                        concerns throughout your ownership journey.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Premium Car Collection - Elegant Showcase -->
+<section class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h6 class="text-danger fw-bold text-uppercase letter-spacing-2">Exclusive Selection</h6>
+            <h2 class="display-5 fw-bold">Premium Pre-Loved Collection</h2>
+            <div class="divider mx-auto bg-danger" style="height: 4px; width: 70px; margin-top: 20px;"></div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Premium Car Item 1 -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="500">
+                <div class="premium-car-card position-relative overflow-hidden rounded">
+                    <img src="{% static 'images/premium-car-section.jpg' %}" class="img-fluid w-100"
+                        style="height: 500px; object-fit: cover;" alt="Premium Car">
+                    <div class="car-overlay position-absolute w-100 h-100 top-0 start-0 d-flex align-items-end p-4"
+                        style="background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 100%);">
+                        <div class="content-box">
+                            <h3 class="fw-bold mb-2">Luxury Collection</h3>
+                            <p class="mb-3">Experience unparalleled elegance with our curated selection of high-end
+                                vehicles.</p>
+                            <a href="{% url 'car-list' %}" class="btn btn-danger rounded-pill px-4">
+                                <i class="fa-solid fa-eye me-2"></i>View Collection
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Car Item 2 -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">
+                <div class="premium-car-card position-relative overflow-hidden rounded">
+                    <img src="{% static 'images/inspect.jpg' %}" class="img-fluid w-100"
+                        style="height: 500px; object-fit: cover;" alt="Inspection">
+                    <div class="car-overlay position-absolute w-100 h-100 top-0 start-0 d-flex align-items-end p-4"
+                        style="background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 100%);">
+                        <div class="content-box">
+                            <h3 class="fw-bold mb-2">Quality Assured</h3>
+                            <p class="mb-3">Every vehicle undergoes rigorous multi-point inspection by certified
+                                experts.</p>
+                            <a href="{% url 'service' %}" class="btn btn-danger rounded-pill px-4">
+                                <i class="fa-solid fa-magnifying-glass me-2"></i>Our Process
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-4">
+            <!-- Premium Car Item 3 -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="500">
+                <div class="premium-car-card position-relative overflow-hidden rounded">
+                    <img src="{% static 'images/finance.jpg' %}" class="img-fluid w-100"
+                        style="height: 500px; object-fit: cover;" alt="Financing">
+                    <div class="car-overlay position-absolute w-100 h-100 top-0 start-0 d-flex align-items-end p-4"
+                        style="background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 100%);">
+                        <div class="content-box">
+                            <h3 class="fw-bold mb-2">Flexible Financing</h3>
+                            <p class="mb-3">Custom payment plans tailored to your budget make luxury ownership
+                                accessible.</p>
+                            <a href="{% url 'contact' %}" class="btn btn-danger rounded-pill px-4">
+                                <i class="fa-solid fa-calculator me-2"></i>Financing Options
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Car Item 4 -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">
+                <div class="premium-car-card position-relative overflow-hidden rounded">
+                    <img src="{% static 'images/test-drive.jpg' %}" class="img-fluid w-100"
+                        style="height: 500px; object-fit: cover;" alt="Test Drive">
+                    <div class="car-overlay position-absolute w-100 h-100 top-0 start-0 d-flex align-items-end p-4"
+                        style="background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 100%);">
+                        <div class="content-box">
+                            <h3 class="fw-bold mb-2">Personalized Experience</h3>
+                            <p class="mb-3">Schedule a test drive at your convenience — your time, your location.</p>
+                            <a href="{% url 'contact' %}" class="btn btn-danger rounded-pill px-4">
+                                <i class="fa-solid fa-calendar-check me-2"></i>Book Test Drive
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-danger text-white">
+    <div class="container py-4">
+        <div class="row align-items-center">
+            <!-- Left Column with Image Gallery -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="500">
+                <div class="gallery-grid">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="{% static 'images/lux-car1.jpg' %}"
+                                class="img-fluid rounded shadow-lg hover-scale" alt="Luxury Car">
+                        </div>
+                        <div class="col-6">
+                            <img src="{% static 'images/lux-car2.jpg' %}"
+                                class="img-fluid rounded shadow-lg hover-scale" alt="Luxury Car">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <img src="{% static 'images/lux-car3.jpg' %}"
+                                class="img-fluid rounded shadow-lg hover-scale" alt="Luxury Car">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column with Text -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">
+                <div class="px-lg-4">
+                    <h6 class="text-white-50 fw-bold text-uppercase letter-spacing-2 mb-3">Experience Excellence</h6>
+                    <h2 class="display-4 fw-bold mb-4">Luxury Cars at Unbeatable Prices</h2>
+                    <p class="lead mb-4">Drive in style and comfort with our premium selection of vehicles that offer
+                        top-notch performance and elegance at prices you'll love.</p>
+                    
+                        <div class="features-list mb-5 d-flex justify-content-start">
+                            <ul class="list-unstyled">
+                                <li class="d-flex align-items-start mb-3">
+                                   
+                                    <span class="mt-1"><i class="fa-solid fa-check p-2 bg-white rounded-pill text-black"></i>   Fully inspected and certified vehicles</span>
+                                </li>
+                                <li class="d-flex align-items-start mb-3">
+                                    
+                                    <span class="mt-1"><i class="fa-solid fa-check p-2 bg-white rounded-pill text-black"></i>   Complete service history documentation</span>
+                                </li>
+                                <li class="d-flex align-items-start mb-3">
+                                    
+                                    <span class="mt-1"><i class="fa-solid fa-check p-2 bg-white rounded-pill text-black"></i>   Extended warranty options available</span>
+                                </li>
+                            </ul>
+                        </div>
+                    
+                    <div class="text-lg-start">
+                        <a href="{% url 'car-list' %}" class="btn btn-light btn-lg rounded-pill px-5">
+                            <i class="fa-solid fa-arrow-right-long me-2"></i>View Inventory
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Call to Action -->
+<section class="py-5 bg-dark text-white text-center">
+    <div class="container py-4">
+        <div class="row justify-content-center ">
+            <div class="col-lg-8" data-aos="zoom-in">
+                <h2 class="display-5 fw-bold mb-4">Ready to Find Your Dream Car?</h2>
+                <p class="lead mb-5">Browse our extensive inventory of premium pre-owned vehicles and schedule a test
+                    drive today</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{% url 'car-list' %}" class="btn btn-danger btn-lg rounded-pill px-5">View Inventory</a>
+                    <a href="tel:+919207773847" class="btn btn-outline-light btn-lg rounded-pill px-5">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    // Initialize AOS Animation
+    document.addEventListener('DOMContentLoaded', function () {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Counter Animation
+        const counterElements = document.querySelectorAll('.counter-value');
+
+        counterElements.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-count'));
+            const duration = 2000; // 2 seconds
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    counter.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+
+            // Start counter when element is in viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        updateCounter();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+
+            observer.observe(counter);
+        });
+
+        // Add smooth hover effects
+        document.querySelectorAll('.hover-scale').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'scale(1.05)';
+                item.style.transition = 'all 0.3s ease';
+            });
+
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1)';
+            });
+        });
+
+        // Add smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+{%endblock%}

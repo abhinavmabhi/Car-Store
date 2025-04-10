@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_block %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-overlay text-center">
+        <h1 class="display-4 fw-bold">Contact Us</h1>
+        <p class="lead">Top-notch support & offerings tailored for luxury car buyers</p>
+    </div>
+</section>
+
+<!-- Flash Messages -->
+{% if messages %}
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050;">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-lg rounded-4 d-flex align-items-center gap-3"
+                role="alert"
+                data-aos="fade-left" 
+                data-aos-duration="1000"
+                style="min-width: 300px; max-width: 400px;">
+
+                <!-- Icon (change based on message tag) -->
+                {% if message.tags == "success" %}
+                    <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                {% elif message.tags == "error" or message.tags == "danger" %}
+                    <i class="bi bi-exclamation-triangle-fill text-danger fs-4"></i>
+                {% elif message.tags == "warning" %}
+                    <i class="bi bi-exclamation-circle-fill text-warning fs-4"></i>
+                {% elif message.tags == "info" %}
+                    <i class="bi bi-info-circle-fill text-info fs-4"></i>
+                {% else %}
+                    <i class="bi bi-bell-fill text-secondary fs-4"></i>
+                {% endif %}
+
+                <!-- Message Content -->
+                <div class="flex-grow-1">
+                    <span class="fw-semibold">{{ message }}</span>
+                </div>
+
+                <!-- Close Button -->
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+
+<!-- Contact Section -->
+{% load static %}
+
+<div class="container my-5">
+    <div class="row border border-2 rounded-5 overflow-hidden shadow">
+        
+        <!-- Right: Contact Form -->
+        <div class="condact-form col-md-7 p-4 bg-light">
+            <h4>Send us a Message</h4>
+            <form action="" method="post" novalidate>
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="btn btn-warning mt-2">Submit</button>
+            </form>
+        </div>
+
+        <!-- Left: Image -->
+        <div class="getin-touch col-md-5 p-0 d-none d-md-block">
+            <img src="{% static 'images/contact.jpg' %}" alt="Contact" class="img-fluid h-100 w-100" style="object-fit: cover;">
+        </div>        
+    </div>
+</div>
+
+
+<!-- Google Maps -->
+<div class="row mt-5">
+    <div class="col-12">
+        <h4 class="text-center">Find Us on Google Maps</h4>
+        <div class="map-container" data-aos="slide-right">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3940.8426605028967!2d76.61112857501843!3d8.986621991073019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOMKwNTknMTEuOCJOIDc2wrAzNic0OS4zIkU!5e0!3m2!1sen!2sin!4v1744104058178!5m2!1sen!2sin"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+{% endblock %}

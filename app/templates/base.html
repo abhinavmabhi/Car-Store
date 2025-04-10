@@ -21,14 +21,16 @@
     <!-- aos============= -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
 
     <!-- nouislider  -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
 
 </head>
 
 <body>
+    
     <!-- navbar -->
     <nav class="navbar">
         <a href="#" class="logo">
@@ -40,23 +42,90 @@
         
         <ul class="nav-links">
 
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Gallery</a></li>
+            <li><a href="{% url 'home'%}">Home</a></li>
+            <li><a href="{% url 'about'%}">About Us</a></li>
+            <li><a href="{% url 'service'%}">Services</a></li>
+            <li><a href="{% url 'contact'%}">Contact</a></li>
+            <li><a href="{% url 'gallery' %}">Gallery</a></li>
 
         </ul>
         
         <div class="menu-toggle">☰</div>
     </nav>
     
-    
+    <!-- WhatsApp and Call Buttons -->
+<div class="fixed-contact-buttons">
+    <a href="https://wa.me/919876543210" target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+919876543210" class="call-btn">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+</div>
+
+
+
+
+
+
+
    
 
     {%block main_block%}
 
     {%endblock%}
+<!-- footer==================== -->
+{% if request.resolver_match.url_name != 'home' %}
+<footer class="bg-dark text-white pt-5 pb-5">
+    <div class="container">
+        <div class="row text-center justify-content-center">
+            <!-- Column 1 -->
+            <div class="col-md-4 mb-4 text-center">
+                <a href="#" class="logo d-inline-block mb-2">
+                    <img src="{% static 'images/logoo.png' %}" alt="Logo" style="max-width: 120px;">
+                </a>
+                <p class="mt-2">We deal in high-quality secondhand premium cars with guaranteed satisfaction. Explore a wide range of trusted vehicles today.</p>
+            </div>
+            <!-- Column 2 -->
+            <div class="col-md-4 mb-4 text-center">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'home' %}" class="text-white">Home</a></li>
+                    <li><a href="{% url 'about' %}" class="text-white">About Us</a></li>
+                    <li><a href="{% url 'service' %}" class="text-white">Services</a></li>
+                    <li><a href="{% url 'contact' %}" class="text-white">Contact</a></li>
+                    <li><a href="{% url 'gallery' %}" class="text-white">Gallery</a></li>
+                </ul>
+            </div>
+
+            
+
+            <!-- Column 3 -->
+            <div class="col-md-4 mb-4 text-center">
+                <h5>Connect With Us</h5>
+                <ul class="list-unstyled d-flex justify-content-center flex-wrap gap-3">
+                    <li><a href="https://facebook.com/yourpage" target="_blank" class="text-white" title="Facebook"><i class="fab fa-facebook fa-lg"></i></a></li>
+                    <li><a href="https://instagram.com/yourpage" target="_blank" class="text-white" title="Instagram"><i class="fab fa-instagram fa-lg"></i></a></li>
+                    <li><a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="text-white" title="WhatsApp"><i class="fab fa-whatsapp fa-lg"></i></a></li>
+                    <li><a href="{% url 'contact' %}" class="text-white" title="Contact Page"><i class="fas fa-envelope fa-lg"></i></a></li>
+                </ul>
+                <p class="mt-2">Call us: <a href="tel:+91XXXXXXXXXX" class="text-white">+91 XXXXX-XXXXX</a></p>
+                <p>Email: <a href="mailto:info@yourdomain.com" class="text-white">info@yourdomain.com</a></p>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="text-center pt-3 border-top border-secondary">
+            <p class="mb-0 small">
+                © 2025 All rights reserved | Designed and Developed by 
+                <a href="https://www.inspirezesttechnologies.com" class="text-light" rel="nofollow">
+                    <b>InspireZest Technologies Pvt Ltd</b>
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+{% endif %}
 
 
     <script>

@@ -7,22 +7,23 @@
 <div class="container-fluid">
     <img src="{% static 'images/home-page.webp' %}" alt="Background Image">
 
-    <div class="overlay-content">
-        <h1>Search for Cars</h1>
-
-
-        <form action="{% url 'home' %}" method="GET" class="search-form">
-            <div class="input-group">
-                <input type="text" class="form-control search-input" placeholder="Search..." name="q" style="width: 500px;">
-                <button type="submit" class="btn search-btn">
-                    <i class="fas fa-search"></i> <!-- FontAwesome Icon -->
-                </button>
-            </div>
-        </form>
-        
-
-        <a href="{%url 'car-list'%}" type="submit" class="button w-50 mt-2">Browse More</a>
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="overlay-content text-center">
+            <h1>Search for Cars</h1>
+    
+            <form action="{% url 'home' %}" method="GET" class="search-form d-flex justify-content-center mt-3">
+                <div class="input-group" style="width: 500px;">
+                    <input type="text" class="form-control search-input" placeholder="Search your car..." name="q">
+                    <button type="submit" class="btn search-btn bg-light">
+                        <i class="fas fa-search text-dark"></i> 
+                    </button>
+                </div>
+            </form>
+    
+            <a href="{% url 'car-list' %}" class="button btn w-50 mt-3 rounded-4 mx-auto">Browse More</a>
+        </div>
     </div>
+    
 </div>
 <!-- Rotating Tire with Text -->
 <div class="rotating-tire">

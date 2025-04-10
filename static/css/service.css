@@ -1,0 +1,64 @@
+.hero-section {
+    height: 70vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/Audi R8 Coupe.jpeg') no-repeat center center;
+    background-size: cover;
+    /* background-attachment: fixed; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+}
+
+.hero-overlay {
+    width: 100%;
+    padding: 2rem;
+}
+
+.service-card {
+    background-color: white;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.service-card-horizontal {
+    background-color: white;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.icon-box {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.hover-card:hover .icon-box {
+    background-color: #dc3545;
+    color: white !important;
+}
+
+.hover-card:hover .icon-box i {
+    color: white !important;
+}
+
+.counter {
+    font-weight: 700;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 50vh;
+    }
+    .icon-box {
+        width: 150px;
+        height: 60px;
+    }
+}

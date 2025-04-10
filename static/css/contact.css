@@ -1,0 +1,26 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    color: #000;
+    
+}
+
+.hero-section {
+    background: url('../images/head-image.jpg') center center / cover no-repeat;
+    height: 70vh;
+    position: relative;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

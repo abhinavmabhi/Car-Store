@@ -1,15 +1,5 @@
-body{
-    font-family: "Roboto Slab", serif;
-}
-.car-detail-icon {
-    margin-right: 10px;
-    font-size: 1.2rem;
-}
-
-.detail-line {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
+body {
+    font-family: 'Poppins', sans-serif;
 }
 
 .price-tag {
@@ -18,33 +8,58 @@ body{
     color: #28a745;
 }
 
-.thumb {
-    border: 2px solid transparent;
-    transition: border 0.3s;
-}
-
-.thumb:hover {
-    border: 2px solid #007bff;
-}
-
 .car-title {
     font-weight: 600;
     font-size: 1.7rem;
 }
 
-.car-img{
+.car-img {
     height: 405px;
     width: 100%;
     object-fit: cover;
 }
-.cardd{
+
+.cardd {
     transition: transform 0.1s ease-in-out;
     border: 1px solid grey;
     border-radius: 10px;
 }
-.cardd:hover{
+
+.cardd:hover {
     transform: scale(1.0);
-    border: rgb(255, 255, 255) solid 1px;
-    background: rgb(0, 0, 0);
+    border: white solid 1px;
+    background: black;
     color: white;
 }
+.sold-out{
+    position: absolute;
+    width: 220px;
+    z-index: 10;
+    top: 20px;
+    left: 50px;
+}
+
+@media (max-width: 768px){
+    .sold-out{
+        width: 120px;
+    }
+}
+@media (max-width: 768px) {
+    #mainImage {
+        height: 200px;
+    }
+}
+
+.thumb {
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+.thumb:hover {
+    transform: scale(1.05);
+}
+.thumb.active {
+    border: 2px solid #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+}
+
+
