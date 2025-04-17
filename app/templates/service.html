@@ -8,10 +8,10 @@
 <section class="hero-section position-relative">
     <div class="hero-overlay text-center animate__animated animate__fadeIn">
         <h1 class="display-4 fw-bold ">Services</h1>
-        <p class="lead ">Top-notch support & offerings tailored for
+        <p class="lead d-none d-sm-block">Top-notch support & offerings tailored for
             luxury car buyers</p>
         <div class="mt-4 ">
-            <a href="#about-content" class="btn btn-danger btn-lg rounded-pill px-4">Explore Services</a>
+            <a href="#services" class="btn btn-danger btn-lg rounded-pill px-4">Explore Services</a>
         </div>
     </div>
 </section>
@@ -160,7 +160,7 @@
         <p class="mb-4 lead">Explore our wide range of premium second-hand cars with full assurance and unmatched support.</p>
         <div class="d-flex flex-wrap gap-3">
           <a href="{% url 'car-list' %}" class="btn btn-light btn-lg rounded-pill px-4 text-danger fw-bold">Browse Cars</a>
-          <a href="#" class="btn btn-outline-light btn-lg rounded-pill px-4">Contact Us</a>
+          <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg rounded-pill px-4">Contact Us</a>
         </div>
       </div>
       <div class="col-lg-6">

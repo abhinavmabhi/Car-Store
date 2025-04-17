@@ -1,0 +1,15 @@
+/* admin_custom.css */
+/* Header bar */
+#header {
+    background-color: #1f2937 !important;  /* Dark blue-gray */
+}
+
+/* Side bar menu */
+.module {
+    background-color: #f3f4f6 !important;  /* Light gray */
+}
+
+/* Change link color */
+a {
+    color: #ffffff !important; /* Blue */
+}

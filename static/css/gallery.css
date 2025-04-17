@@ -189,7 +189,7 @@ align-items: center;
 justify-content: center;
 }
 
-.overlay-text {
+.overlay-text { 
 color: white;
 font-size: 36px;
 font-weight: bold;
@@ -197,7 +197,14 @@ text-align: center;
 }
 
 /* Responsive styles for mobile */
+
 @media (max-width: 768px) {
+.hero{
+    height: 40vh;
+}
+.hero-overlay h1{
+    font-size:x-large;
+}
 .gallery-head {
     height: 168px !important;
 }
